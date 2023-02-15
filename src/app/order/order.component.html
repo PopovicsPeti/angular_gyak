@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center my-3">
+            <h1>Új foglalás felvétele</h1>
+        </div>
+        <div class="col-12 ">
+            <form [formGroup]="orderForm" (submit)="onSubmit()">
+                <div class="col-12">
+                    <label for="datum" class="form-label my-2">Foglalás dátuma</label>
+                    <input type="date" 
+                            class="form-control"
+                            id="datum"
+                            formControlName="datum">
+                </div>
+                <div class="col-12">
+                    <label for="nev" class="form-label  my-2">Foglaló neve</label>
+                    <input type="text" 
+                            class="form-control"
+                            id="nev"
+                            formControlName="nev">
+                </div>
+                <div class="col-12">
+                    <label for="fo" class="form-label  my-2">Létszám ( 2 -16 fő )</label>
+                    <input type="number" 
+                            class="form-control"
+                            id="fo"
+                            formControlName="fo">
+                </div>
+                <div class="col-12">
+                    <label for="cim" class="form-label  my-2">Helyszín</label>
+                    <input type="text" 
+                            class="form-control"
+                            id="cim"
+                            formControlName="cim">
+                </div>
+                <div class="col-12">
+                    <label for="iranyitoszam" class="form-label  my-2">Irányítószám</label>
+                    <input type="text" 
+                            class="form-control"
+                            id="iranyitoszam"
+                            formControlName="iranyitoszam">
+                </div>
+
+                <div class="col-12 my-3 text-center">
+                    <button type="submit" 
+                            class="btn btn-success"
+                            [disabled]="!orderForm.valid">Foglalás</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger alert-dismissible fade show" 
+                 role="alert"
+                 *ngIf="errorMessage">
+                <strong>Valamilyen hiba történt!</strong> {{ errorMessage }}
+                <button type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="alert" 
+                        aria-label="Close"
+                        (click)="errorMessage = ''"
+                        ></button>
+              </div>
+        </div>
+    </div>
+</div>
